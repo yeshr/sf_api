@@ -22,16 +22,21 @@ angular.module('myApp.view1', ['ngRoute', 'myApp.services'])
                 .then(function (res) {
                     $scope.blogs = res.data
                                     .map(function(blog) {
-                                        blog.timestamp = $filter('date')(blog.timestamp, 'medium');
+                                        blog.timestamp = $filter('date')(new Date(blog.timestamp), 'dd MMM yyyy');
                                         return blog;
                                     });
                 });
         };
 
         $scope.delete = function(id) {
-            return blogService.delete(id)
+            return blogService.deleteBlog(id)
              //Reload the blogs. We could manage it at client end too if need be.
                 .then($scope.init);
         };
+
+        $scope.deleteAll = function () {
+            return blogService.deleteBlogs()
+                .then($scope.init);
+        }
     }
 ]);

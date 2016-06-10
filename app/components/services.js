@@ -18,7 +18,7 @@ angular.module('myApp.services', [])
                     if (angular.isUndefined(id)) {
                         return $q.when('Missing blog id. Failed to retrieve');
                     }
-                    return $http.get(api + '/' + id);
+                    return $http.get(api + id);
                 },
                 createBlog: function (data) {
                     console.log(data);
@@ -45,7 +45,7 @@ angular.module('myApp.services', [])
                         return $q.when('Missing blog id. Cannot delete the blog');
                     }
 
-                    return $http.delete(api + '/' + id);
+                    return $http.delete(api + id);
                 },
                 getSampleData: function() {
                     return $http.get(api+'/generateSampleData');

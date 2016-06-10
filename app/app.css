@@ -45,3 +45,11 @@
 .form-horizontal .form-submit {
     text-align: right;
 }
+
+.fa {
+    vertical-align: super;
+}
+.inline-title {
+    display: inline-block;
+    padding-left: 15px;
+}
