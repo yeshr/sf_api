@@ -14,7 +14,6 @@ angular.module('myApp.view2', ['ngRoute', 'myApp.services'])
   , 'blogService'
   , '$routeParams'
   , function($scope, blogService, $routeParams) {
-    console.log($routeParams);
     $scope.blog = {};
     $scope.saved = '';
     $scope.showSampleBtn = angular.isUndefined($routeParams.id);
@@ -34,7 +33,6 @@ angular.module('myApp.view2', ['ngRoute', 'myApp.services'])
     };
 
     $scope.update = function(blog, $event) {
-        console.log('Update', blog);
         $event.preventDefault();
         return blogService.updateBlog(blog)
             .then(function (res) {

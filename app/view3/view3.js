@@ -17,7 +17,6 @@ angular.module('myApp.view3', ['ngRoute', 'myApp.services'])
         , 'blogService'
         , '$routeParams'
         , function($scope, blogService, $routeParams) {
-            console.log($routeParams);
             $scope.blog = {};
             $scope.saved = '';
             $scope.showSampleBtn = angular.isUndefined($routeParams.id);
