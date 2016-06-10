@@ -25,12 +25,11 @@ angular.module('myApp.services', [])
                     if (angular.isUndefined(data.text) && angular.isUndefined(data.title)) {
                         return $q.when('Missing data. Cannot create the blog.');
                     }
-                    // TODO: Update the config data
                     return $http.post(api, data);
                 },
                 updateBlog: function (data) {
                     if (angular.isUndefined(data.id)
-                        || angular.isUndefiend(data.text)
+                        || angular.isUndefined(data.text)
                         || angular.isUndefined(data.title)) {
                         return $q.when('Missing data. Cannot update the blog');
                     }
