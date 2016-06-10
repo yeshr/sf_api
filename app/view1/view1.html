@@ -1,0 +1,28 @@
+<div class="row">
+    <div class="col-md-12 page-title">
+        <h1>My Blog</h1>
+    </div>
+</div>
+<div class="row" ng-init="init()">
+    <div class="col-md-4 left-column">
+        <h3>Past Posts</h3>
+        <ul>
+            <!-- Build ot the list of past posts-->
+            <li ng-repeat="blog in blogs">{{blog.timestamp | date:'MM/dd/yyyy'}} - {{blog.title}}</li>
+        </ul>
+        <div>
+            <a class="btn btn-primary" href="#!/create">Create new blog</a>
+        </div>
+    </div>
+    <div class="col-md-8 right-column">
+        <div ng-show="blogs" ng-repeat="blog in blogs" class="blog-post">
+            <h2 class="clearfix"><span class="post-title pull-left">{{blog.title}}</span><span class="post-date pull-right">{{blog.timestamp | date: 'dd MMM yyyy': 'UTC'}}</span></h2>
+            <p>{{blog.text}}</p>
+            <div class="actions">
+                <a class="btn btn-secondary" href="#!/edit/{{blog.id}}">Edit</a>
+                <button class="btn btn-secondary" ng-click="delete(blog.id)">Delete</button>
+            </div>
+        </div>
+        <p ng-hide="blogs">You currently don't have any blogs</p>
+    </div>
+</div>
